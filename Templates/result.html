@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Classification Result</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://media.istockphoto.com/id/894125638/photo/stethoscope-on-the-table.jpg?s=612x612&w=0&k=20&c=JgYfIxI_Eo7dddZuePNGRnTrEJDOslL1x92k60IqkUc=') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .box {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 40px;
+      border-radius: 16px;
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #e60073;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #b30059;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>🩺 Prediction Result</h1>
+    <p><strong>Disease Classification:</strong> {{ prediction }}</p>
+
+    {% if image_path %}
+      <img src="{{ url_for('static', filename=image_path) }}" alt="Uploaded Image">
+    {% endif %}
+
+    <a class="btn" href="{{ url_for('home') }}">🔙 Back to Home</a>
+  </div>
+
+</body>
+</html>
